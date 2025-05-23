@@ -827,7 +827,7 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 			return
 		}
 		if len(nodes) <= 0 {
-			if ctx.rule.RequireField {
+			if ctx.rule.RequireField == nil || *ctx.rule.RequireField {
 				result := model.RuleFunctionResult{
 					Message:   fmt.Sprintf("%s: field specified in 'given' path does not exist", ctx.rule.Description),
 					StartNode: ctx.specNode,

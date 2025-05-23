@@ -39,6 +39,11 @@
               "id": {
                 "type": "string"
               },
+              "requireField": {
+                "type": "boolean",
+                "description": "Whether the field in 'given' must exist",
+                "default": true
+              },
               "category": {
                 "oneOf": [
                   {
