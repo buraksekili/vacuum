@@ -607,11 +607,19 @@ func CreateRuleSetUsingJSON(jsonData []byte) (*RuleSet, error) {
 			}
 			rs.Rules[k] = &rule
 			rule.Resolved = true // default resolved.
+			if rule.RequireField == nil {
+				rule.RequireField = new(bool)
+				*rule.RequireField = true
+			}
 		}
 
 		if b, ok := v.(model.Rule); ok {
 			rs.Rules[k] = &b
 			b.Resolved = true // default resolved
+			if b.RequireField == nil {
+				b.RequireField = new(bool)
+				*b.RequireField = true
+			}
 		}
 	}
 	return rs, nil

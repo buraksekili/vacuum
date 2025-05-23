@@ -113,7 +113,7 @@ type Rule struct {
 	RuleCategory       *RuleCategory  `json:"category,omitempty" yaml:"category,omitempty"`
 	Name               string         `json:"-" yaml:"-"`
 	HowToFix           string         `json:"howToFix,omitempty" yaml:"howToFix,omitempty"`
-	RequireField       bool           `json:"requireField,omitempty" yaml:"requireField,omitempty"` // Whether the field in 'given' must exist
+	RequireField       *bool          `json:"requireField,omitempty" yaml:"requireField,omitempty"` // Whether the field in 'given' must exist
 }
 
 // RuleFunctionProperty is used by RuleFunctionSchema to describe the functionOptions a Rule accepts
