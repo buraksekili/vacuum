@@ -7,9 +7,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	vacuumUtils "github.com/daveshanley/vacuum/utils"
-	v3 "github.com/pb33f/libopenapi/datamodel/high/v3"
-	"github.com/sourcegraph/conc"
 	"io"
 	"log/slog"
 	"net/url"
@@ -18,6 +15,10 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	vacuumUtils "github.com/daveshanley/vacuum/utils"
+	v3 "github.com/pb33f/libopenapi/datamodel/high/v3"
+	"github.com/sourcegraph/conc"
 
 	"github.com/daveshanley/vacuum/functions"
 	"github.com/daveshanley/vacuum/model"
@@ -739,7 +740,6 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 }
 
 func runRule(ctx ruleContext, doneChan chan bool) {
-
 	if ctx.panicFunc != nil {
 		defer func() {
 			if r := recover(); r != nil {
@@ -777,7 +777,6 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 	var err error
 
 	for _, givenPath := range givenPaths {
-
 		if givenPath != "$" {
 
 			// create a timeout on this, if we can't get a result within 2s, then
@@ -828,6 +827,17 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 			return
 		}
 		if len(nodes) <= 0 {
+			if ctx.rule.RequireField {
+				result := model.RuleFunctionResult{
+					Message:   fmt.Sprintf("%s: field specified in 'given' path does not exist", ctx.rule.Description),
+					StartNode: ctx.specNode,
+					EndNode:   vacuumUtils.BuildEndNode(ctx.specNode),
+					Path:      givenPath,
+					Rule:      ctx.rule,
+				}
+
+				*ctx.ruleResults = append(*ctx.ruleResults, result)
+			}
 			continue
 		}
 

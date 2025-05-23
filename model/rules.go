@@ -3,15 +3,16 @@ package model
 import (
 	_ "embed" // embedding is not supported by golint,
 	"encoding/json"
+	"log/slog"
+	"regexp"
+	"time"
+
 	"github.com/daveshanley/vacuum/model/reports"
 	"github.com/pb33f/doctor/model"
 	"github.com/pb33f/libopenapi"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/pb33f/libopenapi/index"
 	"gopkg.in/yaml.v3"
-	"log/slog"
-	"regexp"
-	"time"
 )
 
 const (
@@ -112,6 +113,7 @@ type Rule struct {
 	RuleCategory       *RuleCategory  `json:"category,omitempty" yaml:"category,omitempty"`
 	Name               string         `json:"-" yaml:"-"`
 	HowToFix           string         `json:"howToFix,omitempty" yaml:"howToFix,omitempty"`
+	RequireField       bool           `json:"requireField,omitempty" yaml:"requireField,omitempty"` // Whether the field in 'given' must exist
 }
 
 // RuleFunctionProperty is used by RuleFunctionSchema to describe the functionOptions a Rule accepts
