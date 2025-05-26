@@ -83,7 +83,6 @@ var indexRegex = regexp.MustCompile(`(\w+)\[(\d+)]`)
 
 // GenerateSpectralReport will return a Spectral compatible report structure, easily serializable
 func (rr *RuleResultSet) GenerateSpectralReport(source string) []reports.SpectralReport {
-
 	var report []reports.SpectralReport
 	for _, result := range rr.Results {
 
