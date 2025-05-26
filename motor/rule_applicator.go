@@ -50,6 +50,7 @@ type ruleContext struct {
 	skipDocumentCheck  bool
 	logger             *slog.Logger
 	nodeLookupTimeout  time.Duration
+	hasResults         bool // New field to track if the rule produced any results
 }
 
 // RuleSetExecution is an instruction set for executing a ruleset. It's a convenience structure to allow the signature
@@ -90,6 +91,7 @@ type RuleSetExecution struct {
 type RuleSetExecutionResult struct {
 	RuleSetExecution *RuleSetExecution                // The execution struct that was used invoking the result.
 	Results          []model.RuleFunctionResult       // The results of the execution.
+	PassedRules      map[string]*model.Rule           // New field to track rules that passed.
 	Index            *index.SpecIndex                 // The index that was created from the specification, used by the rules.
 	SpecInfo         *datamodel.SpecInfo              // A reference to the SpecInfo object, used by all the rules.
 	Errors           []error                          // Any errors that were returned.
@@ -113,8 +115,15 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 	builtinFunctions := functions.MapBuiltinFunctions()
 	var ruleResults []model.RuleFunctionResult
 	var ruleWaitGroup sync.WaitGroup
+	// Initialize the map to track passed rules
+	passedRules := make(map[string]*model.Rule)
+
+	// Initialize all rules as passed
 	if execution.RuleSet != nil && execution.RuleSet.Rules != nil {
 		ruleWaitGroup.Add(len(execution.RuleSet.Rules))
+		for _, rule := range execution.RuleSet.Rules { // Iterate over the slice of rules
+			passedRules[rule.Id] = rule // Use rule.Id as the key
+		}
 	}
 
 	var specResolved *yaml.Node
@@ -684,6 +693,7 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 					skipDocumentCheck:  execution.SkipDocumentCheck,
 					logger:             docConfig.Logger,
 					nodeLookupTimeout:  execution.NodeLookupTimeout,
+					hasResults:         false,
 				}
 				if execution.PanicFunction != nil {
 					ctx.panicFunc = execution.PanicFunction
@@ -715,6 +725,15 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 		indexConfig.Logger.Debug("rules completed", "totalRules", totalRules, "ms", then)
 	}
 
+	// After all rules have been executed, remove rules that failed from the passedRules map
+	for _, result := range ruleResults {
+		if result.Rule != nil {
+			delete(passedRules, result.Rule.Id)
+		} else if result.RuleId != "" {
+			delete(passedRules, result.RuleId)
+		}
+	}
+
 	filesProcessed := 0
 	fileSize := int64(0)
 
@@ -730,6 +749,7 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 	return &RuleSetExecutionResult{
 		RuleSetExecution: execution,
 		Results:          ruleResults,
+		PassedRules:      passedRules,
 		Index:            indexResolved,
 		SpecInfo:         specInfo,
 		Errors:           errs,
@@ -747,6 +767,9 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 			}
 		}()
 	}
+
+	// Set hasResults to false initially
+	ctx.hasResults = false
 
 	var givenPaths []string
 	if x, ok := ctx.rule.Given.(string); ok {
@@ -841,6 +864,9 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 			continue
 		}
 
+		// After running the rule function, check if any results were added
+		initialResultsCount := len(*ctx.ruleResults)
+
 		// check for a single action
 		var ruleAction model.RuleAction
 		err = mapstructure.Decode(ctx.rule.Then, &ruleAction)
@@ -861,6 +887,10 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 				}
 			}
 		}
+		// Check if any results were added
+		if len(*ctx.ruleResults) > initialResultsCount {
+			ctx.hasResults = true
+		}
 	}
 	doneChan <- true
 }
@@ -868,6 +898,8 @@ func runRule(ctx ruleContext, doneChan chan bool) {
 var lock sync.Mutex
 
 func buildResults(ctx ruleContext, ruleAction model.RuleAction, nodes []*yaml.Node) *[]model.RuleFunctionResult {
+
+	initialResultsCount := len(*ctx.ruleResults)
 
 	ruleFunction := ctx.builtinFunctions.FindFunction(ruleAction.Function)
 	// not found, check if it's been registered as a custom function
@@ -944,6 +976,12 @@ func buildResults(ctx ruleContext, ruleAction model.RuleAction, nodes []*yaml.No
 
 		}
 	}
+
+	// Check if any results were added
+	if len(*ctx.ruleResults) > initialResultsCount {
+		ctx.hasResults = true
+	}
+
 	return ctx.ruleResults
 }
 
