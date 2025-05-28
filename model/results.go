@@ -1,13 +1,14 @@
 package model
 
 import (
-	"github.com/daveshanley/vacuum/model/reports"
-	"github.com/pb33f/libopenapi/datamodel"
 	"math"
 	"regexp"
 	"sort"
 	"strings"
 	"sync"
+
+	"github.com/daveshanley/vacuum/model/reports"
+	"github.com/pb33f/libopenapi/datamodel"
 )
 
 // RuleResultsForCategory boils down result statistics for a linting category
@@ -45,20 +46,21 @@ func (rr *RuleResultsForCategory) Swap(i, j int) {
 // NewRuleResultSet will encapsulate a set of results into a set, that can then be queried.
 // the function will create pointers to results, instead of copying them again.
 func NewRuleResultSet(results []RuleFunctionResult) *RuleResultSet {
-	// use pointers for speed down the road, we don't need to keep copying this data.
-	var pointerResults []*RuleFunctionResult
+	pointerResults := make([]*RuleFunctionResult, 0, len(results))
 	for _, res := range results {
 		n := res
 		pointerResults = append(pointerResults, &n)
-
 	}
+
 	rrs := &RuleResultSet{
 		Results:     pointerResults,
 		categoryMap: make(map[*RuleCategory][]*RuleFunctionResult),
 	}
-	rrs.GetErrorCount()
-	rrs.GetInfoCount()
-	rrs.GetWarnCount()
+
+	rrs.ErrorCount = rrs.GetErrorCount()
+	rrs.InfoCount = rrs.GetInfoCount()
+	rrs.WarnCount = rrs.GetWarnCount()
+
 	return rrs
 }
 
@@ -81,13 +83,11 @@ func NewRuleResultSetPointer(results []*RuleFunctionResult) *RuleResultSet {
 var paramRegex = regexp.MustCompile(`(\w+)\['([\w{}/:_-]+)'`)
 var indexRegex = regexp.MustCompile(`(\w+)\[(\d+)]`)
 
-// GenerateSpectralReport will return a Spectral compatible report structure, easily serializable
 func (rr *RuleResultSet) GenerateSpectralReport(source string) []reports.SpectralReport {
-	var report []reports.SpectralReport
-	for _, result := range rr.Results {
-
+	report := make([]reports.SpectralReport, 0, len(rr.Results))
+	for i := range rr.Results {
 		sev := 1
-		switch result.Rule.Severity {
+		switch rr.Results[i].Rule.Severity {
 		case SeverityError:
 			sev = 0
 		case SeverityInfo:
@@ -100,13 +100,13 @@ func (rr *RuleResultSet) GenerateSpectralReport(source string) []reports.Spectra
 		sChar := 0
 		eLine := 0
 		eChar := 0
-		if result.StartNode != nil {
-			sLine = result.StartNode.Line
-			sChar = result.StartNode.Column
+		if rr.Results[i].StartNode != nil {
+			sLine = rr.Results[i].StartNode.Line
+			sChar = rr.Results[i].StartNode.Column
 		}
-		if result.EndNode != nil {
-			eLine = result.EndNode.Line
-			eChar = result.EndNode.Column
+		if rr.Results[i].EndNode != nil {
+			eLine = rr.Results[i].EndNode.Line
+			eChar = rr.Results[i].EndNode.Column
 		}
 
 		resultRange := reports.Range{
@@ -119,16 +119,16 @@ func (rr *RuleResultSet) GenerateSpectralReport(source string) []reports.Spectra
 				Char: eChar,
 			},
 		}
-		var path []string
 		// check for double dots in the path, and collapse them.
 		// https://github.com/daveshanley/vacuum/issues/583
-		if strings.Contains(result.Path, "..") {
-			result.Path = strings.ReplaceAll(result.Path, "..", ".")
+		if strings.Contains(rr.Results[i].Path, "..") {
+			rr.Results[i].Path = strings.ReplaceAll(rr.Results[i].Path, "..", ".")
 		}
-		pathArr := strings.Split(result.Path, ".")
+		pathArr := strings.Split(rr.Results[i].Path, ".")
+		path := make([]string, 0, len(pathArr))
+
 		for _, pItem := range pathArr {
 			if pItem != "$" {
-
 				p := paramRegex.FindStringSubmatch(pItem)
 				i := indexRegex.FindStringSubmatch(pItem)
 				if len(p) == 3 {
@@ -145,14 +145,15 @@ func (rr *RuleResultSet) GenerateSpectralReport(source string) []reports.Spectra
 		}
 
 		report = append(report, reports.SpectralReport{
-			Code:     result.Rule.Id,
+			Code:     rr.Results[i].Rule.Id,
 			Path:     path,
-			Message:  result.Message,
+			Message:  rr.Results[i].Message,
 			Severity: sev,
 			Range:    resultRange,
 			Source:   source,
 		})
 	}
+
 	return report
 }
 
@@ -164,12 +165,6 @@ func (rr *RuleResultSet) GetErrorCount() int {
 		rr.ErrorCount = getCount(rr, SeverityError)
 		return rr.ErrorCount
 	}
-}
-
-func (rr *RuleResultSet) ResetCounts() {
-	rr.ErrorCount = 0
-	rr.WarnCount = 0
-	rr.InfoCount = 0
 }
 
 // GetWarnCount will return the number of warnings returned by the rule results.
@@ -326,17 +321,19 @@ func (rr *RuleResultSet) GetResultsForCategoryWithLimit(category string, limit i
 
 func getCount(rr *RuleResultSet, severity string) int {
 	c := 0
-	for _, res := range rr.Results {
-		if res.Rule != nil {
-			if res.Rule.Severity == severity {
+
+	for i := range rr.Results {
+		if rr.Results[i].Rule != nil {
+			if rr.Results[i].Rule.Severity == severity {
 				c++
 			}
-			// if there is no severity, mark it as a warning by default.
-			if res.Rule.Severity == "" && severity == SeverityWarn {
+
+			if rr.Results[i].Rule.Severity == "" && severity == SeverityWarn {
 				c++
 			}
 		}
 	}
+
 	return c
 }
 
