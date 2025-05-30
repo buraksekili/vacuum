@@ -115,14 +115,12 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 	builtinFunctions := functions.MapBuiltinFunctions()
 	var ruleResults []model.RuleFunctionResult
 	var ruleWaitGroup sync.WaitGroup
-	// Initialize the map to track passed rules
-	passedRules := make(map[string]*model.Rule)
 
-	// Initialize all rules as passed
+	passedRules := make(map[string]*model.Rule, len(execution.RuleSet.Rules))
 	if execution.RuleSet != nil && execution.RuleSet.Rules != nil {
 		ruleWaitGroup.Add(len(execution.RuleSet.Rules))
-		for _, rule := range execution.RuleSet.Rules { // Iterate over the slice of rules
-			passedRules[rule.Id] = rule // Use rule.Id as the key
+		for i := range execution.RuleSet.Rules {
+			passedRules[execution.RuleSet.Rules[i].Name] = execution.RuleSet.Rules[i]
 		}
 	}
 
@@ -728,9 +726,7 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 	// After all rules have been executed, remove rules that failed from the passedRules map
 	for _, result := range ruleResults {
 		if result.Rule != nil {
-			delete(passedRules, result.Rule.Id)
-		} else if result.RuleId != "" {
-			delete(passedRules, result.RuleId)
+			delete(passedRules, result.Rule.Name)
 		}
 	}
 

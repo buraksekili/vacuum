@@ -1,9 +1,10 @@
-module github.com/daveshanley/vacuum
+module github.com/buraksekili/vacuum
 
 go 1.23.0
 
 require (
 	github.com/alecthomas/chroma v0.10.0
+	github.com/daveshanley/vacuum v0.16.14
 	github.com/dop251/goja v0.0.0-20250309171923-bcd7cc6bf64c
 	github.com/dop251/goja_nodejs v0.0.0-20250409162600-f7acab6894b0
 	github.com/dustin/go-humanize v1.0.1
@@ -12,9 +13,9 @@ require (
 	github.com/gizak/termui/v3 v3.1.0
 	github.com/json-iterator/go v1.1.12
 	github.com/mitchellh/mapstructure v1.5.0
-	github.com/pb33f/doctor v0.0.27
-	github.com/pb33f/libopenapi v0.21.12
-	github.com/pb33f/libopenapi-validator v0.4.4
+	github.com/pb33f/doctor v0.0.28
+	github.com/pb33f/libopenapi v0.22.1
+	github.com/pb33f/libopenapi-validator v0.4.6
 	github.com/pterm/pterm v0.12.80
 	github.com/santhosh-tekuri/jsonschema/v6 v6.0.1
 	github.com/sourcegraph/conc v0.3.0
@@ -37,12 +38,11 @@ require (
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/containerd/console v1.0.4 // indirect
+	github.com/containerd/console v1.0.5 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dlclark/regexp2 v1.11.5 // indirect
 	github.com/go-sourcemap/sourcemap v2.1.4+incompatible // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
-	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/pprof v0.0.0-20250501235452-c0086092b71a // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gookit/color v1.5.4 // indirect
