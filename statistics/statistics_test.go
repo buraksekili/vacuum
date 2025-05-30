@@ -2,9 +2,9 @@ package statistics
 
 import (
 	"context"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"

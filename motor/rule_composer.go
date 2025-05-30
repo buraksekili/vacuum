@@ -3,9 +3,9 @@ package motor
 import (
 	"errors"
 	"fmt"
-	"github.com/daveshanley/vacuum/functions"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/functions"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/mitchellh/mapstructure"
 )
 

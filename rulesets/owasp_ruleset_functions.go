@@ -1,7 +1,7 @@
 package rulesets
 
 import (
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 )
 
 // rules taken from https://github.com/stoplightio/spectral-owasp-ruleset/blob/main/src/ruleset.ts

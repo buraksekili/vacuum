@@ -4,15 +4,15 @@
 package openapi
 
 import (
-    "fmt"
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    "github.com/pb33f/libopenapi/datamodel/low"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
-    "strconv"
-    "strings"
+	"fmt"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	"github.com/pb33f/libopenapi/datamodel/low"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
+	"strconv"
+	"strings"
 )
 
 // ComponentDescription will check through all components and determine if they are correctly described

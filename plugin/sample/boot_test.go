@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/daveshanley/vacuum/plugin"
+	"github.com/buraksekili/vacuum/plugin"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

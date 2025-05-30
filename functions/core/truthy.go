@@ -4,13 +4,13 @@
 package core
 
 import (
-    "fmt"
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
-    "sort"
+	"fmt"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
+	"sort"
 )
 
 // Truthy is a rule that will determine if something is seen as 'true' (could be a 1 or "pizza", or actually 'true')

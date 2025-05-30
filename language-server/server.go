@@ -21,9 +21,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/utils"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/utils"
 	"github.com/spf13/viper"
 	"github.com/tliron/glsp"
 	protocol "github.com/tliron/glsp/protocol_3_16"

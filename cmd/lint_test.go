@@ -3,7 +3,7 @@ package cmd
 import (
 	"bytes"
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/pterm/pterm"
 	"github.com/stretchr/testify/assert"
 	"io"

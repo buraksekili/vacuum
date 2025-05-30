@@ -1,10 +1,10 @@
 package html_report
 
 import (
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/rulesets"
-	"github.com/daveshanley/vacuum/statistics"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/statistics"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"

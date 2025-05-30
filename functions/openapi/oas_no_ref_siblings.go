@@ -3,8 +3,8 @@ package openapi
 import (
 	"strings"
 
-	"github.com/daveshanley/vacuum/model"
-	vacuumUtils "github.com/daveshanley/vacuum/utils"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
 	"github.com/pb33f/libopenapi/utils"
 	"gopkg.in/yaml.v3"
 )

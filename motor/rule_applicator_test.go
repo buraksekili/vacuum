@@ -2,9 +2,9 @@ package motor
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/plugin"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/plugin"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/pb33f/libopenapi"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/stretchr/testify/assert"

@@ -2,9 +2,9 @@ package plugin
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/functions/core"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/plugin/javascript"
+	"github.com/buraksekili/vacuum/functions/core"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/plugin/javascript"
 	"github.com/pterm/pterm"
 	"gopkg.in/yaml.v3"
 	"os"

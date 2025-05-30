@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	yaml "gopkg.in/yaml.v3"
 )
 

@@ -4,19 +4,19 @@
 package core
 
 import (
-    ctx "context"
-    "fmt"
-    "github.com/daveshanley/vacuum/model"
-    "github.com/daveshanley/vacuum/parser"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    validationErrors "github.com/pb33f/libopenapi-validator/errors"
-    highBase "github.com/pb33f/libopenapi/datamodel/high/base"
-    "github.com/pb33f/libopenapi/datamodel/low"
-    lowBase "github.com/pb33f/libopenapi/datamodel/low/base"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
-    "strings"
+	ctx "context"
+	"fmt"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/parser"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	validationErrors "github.com/pb33f/libopenapi-validator/errors"
+	highBase "github.com/pb33f/libopenapi/datamodel/high/base"
+	"github.com/pb33f/libopenapi/datamodel/low"
+	lowBase "github.com/pb33f/libopenapi/datamodel/low/base"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
+	"strings"
 )
 
 // Schema is a rule that creates a schema check against a field value

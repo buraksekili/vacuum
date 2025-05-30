@@ -4,12 +4,12 @@
 package core
 
 import (
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
-    "strconv"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
+	"strconv"
 )
 
 // TODO: come back and reduce the amount of code in here, it's not very efficient.

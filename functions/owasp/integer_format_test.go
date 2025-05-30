@@ -4,7 +4,7 @@
 package owasp
 
 import (
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	drModel "github.com/pb33f/doctor/model"
 	"github.com/pb33f/libopenapi"
 	"github.com/stretchr/testify/assert"

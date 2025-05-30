@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/daveshanley/vacuum/cmd"
+	"github.com/buraksekili/vacuum/cmd"
 	"time"
 )
 

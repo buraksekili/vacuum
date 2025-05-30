@@ -1,8 +1,8 @@
 package statistics
 
 import (
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/model/reports"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/model/reports"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/pb33f/libopenapi/index"
 )

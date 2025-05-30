@@ -5,8 +5,8 @@ package openapi
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
-	vutils "github.com/daveshanley/vacuum/utils"
+	"github.com/buraksekili/vacuum/model"
+	vutils "github.com/buraksekili/vacuum/utils"
 	"github.com/pb33f/libopenapi/utils"
 	"gopkg.in/yaml.v3"
 )

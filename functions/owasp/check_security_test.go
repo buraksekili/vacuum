@@ -7,7 +7,7 @@ import (
 	drModel "github.com/pb33f/doctor/model"
 	"github.com/pb33f/libopenapi"
 
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/stretchr/testify/assert"
 )
 

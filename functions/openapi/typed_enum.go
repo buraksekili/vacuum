@@ -5,10 +5,10 @@ package openapi
 
 import (
 	"fmt"
-	vacuumUtils "github.com/daveshanley/vacuum/utils"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
 	"strconv"
 
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/pb33f/libopenapi/utils"
 	"gopkg.in/yaml.v3"
 )

@@ -2,11 +2,11 @@ package benchmarks
 
 import (
 	"crypto/sha256"
-	html_report "github.com/daveshanley/vacuum/html-report"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/rulesets"
-	"github.com/daveshanley/vacuum/statistics"
+	html_report "github.com/buraksekili/vacuum/html-report"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/statistics"
 	"os"
 	"testing"
 )

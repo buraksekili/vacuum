@@ -6,11 +6,11 @@ package functions
 import (
 	"sync"
 
-	"github.com/daveshanley/vacuum/functions/core"
-	openapi_functions "github.com/daveshanley/vacuum/functions/openapi"
-	"github.com/daveshanley/vacuum/functions/owasp"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/plugin"
+	"github.com/buraksekili/vacuum/functions/core"
+	openapi_functions "github.com/buraksekili/vacuum/functions/openapi"
+	"github.com/buraksekili/vacuum/functions/owasp"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/plugin"
 )
 
 type customFunction struct {

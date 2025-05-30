@@ -3,8 +3,8 @@ package languageserver
 import (
 	"os"
 
-	"github.com/daveshanley/vacuum/plugin"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/plugin"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 )

@@ -6,7 +6,7 @@ package rulesets
 import (
 	"context"
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"io"
 	"net/http"
 	"os"

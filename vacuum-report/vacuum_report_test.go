@@ -3,7 +3,7 @@ package vacuum_report
 import (
 	"bytes"
 	"compress/gzip"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/stretchr/testify/assert"

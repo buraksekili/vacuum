@@ -4,16 +4,16 @@
 package openapi
 
 import (
-    "fmt"
-    "github.com/daveshanley/vacuum/model"
-    "github.com/daveshanley/vacuum/model/reports"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    v3 "github.com/pb33f/doctor/model/high/v3"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
-    "net/http"
-    "strconv"
-    "strings"
+	"fmt"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/model/reports"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	v3 "github.com/pb33f/doctor/model/high/v3"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
+	"net/http"
+	"strconv"
+	"strings"
 )
 
 // OperationDescription will check if an operation has a description, and if the description is useful

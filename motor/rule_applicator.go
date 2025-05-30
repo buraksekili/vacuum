@@ -16,13 +16,13 @@ import (
 	"sync"
 	"time"
 
-	vacuumUtils "github.com/daveshanley/vacuum/utils"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
 	v3 "github.com/pb33f/libopenapi/datamodel/high/v3"
 	"github.com/sourcegraph/conc"
 
-	"github.com/daveshanley/vacuum/functions"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/functions"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/mitchellh/mapstructure"
 	doctorModel "github.com/pb33f/doctor/model"
 	"github.com/pb33f/libopenapi"

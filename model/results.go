@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/daveshanley/vacuum/model/reports"
+	"github.com/buraksekili/vacuum/model/reports"
 	"github.com/pb33f/libopenapi/datamodel"
 	"math"
 	"regexp"

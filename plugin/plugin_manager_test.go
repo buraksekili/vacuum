@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"github.com/daveshanley/vacuum/functions/core"
+	"github.com/buraksekili/vacuum/functions/core"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

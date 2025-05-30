@@ -6,7 +6,7 @@ import (
 	"github.com/pb33f/libopenapi"
 	"testing"
 
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/pb33f/libopenapi/utils"
 	"github.com/stretchr/testify/assert"
 )

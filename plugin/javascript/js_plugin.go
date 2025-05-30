@@ -5,8 +5,8 @@ package javascript
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/model/reports"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/model/reports"
 	"github.com/dop251/goja"
 	"github.com/dop251/goja_nodejs/console"
 	"github.com/dop251/goja_nodejs/require"

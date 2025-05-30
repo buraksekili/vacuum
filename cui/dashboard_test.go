@@ -4,9 +4,9 @@
 package cui
 
 import (
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/rulesets"
 	ui "github.com/gizak/termui/v3"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/pb33f/libopenapi/index"

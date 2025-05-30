@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/daveshanley/vacuum/model/reports"
+	"github.com/buraksekili/vacuum/model/reports"
 	"github.com/pb33f/doctor/model"
 	"github.com/pb33f/libopenapi"
 	"github.com/pb33f/libopenapi/datamodel"

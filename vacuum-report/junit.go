@@ -7,7 +7,7 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"strings"
 	"text/template"
 	"time"

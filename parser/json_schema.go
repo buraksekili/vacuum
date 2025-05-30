@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	yamlAlt "github.com/ghodss/yaml"
 	validationErrors "github.com/pb33f/libopenapi-validator/errors"
 	"github.com/pb33f/libopenapi-validator/schema_validation"

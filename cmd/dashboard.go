@@ -5,10 +5,10 @@ package cmd
 
 import (
 	"errors"
-	"github.com/daveshanley/vacuum/cui"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/motor"
-	vacuum_report "github.com/daveshanley/vacuum/vacuum-report"
+	"github.com/buraksekili/vacuum/cui"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/motor"
+	vacuum_report "github.com/buraksekili/vacuum/vacuum-report"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/pb33f/libopenapi/index"
 	"github.com/pterm/pterm"

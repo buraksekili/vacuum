@@ -1,6 +1,6 @@
 package owasp
 
-import "github.com/daveshanley/vacuum/model"
+import "github.com/buraksekili/vacuum/model"
 
 func buildOpenApiTestRuleAction(given, function, field string, functionOptions interface{}) model.Rule {
 	return model.Rule{

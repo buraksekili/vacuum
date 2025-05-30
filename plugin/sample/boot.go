@@ -1,6 +1,6 @@
 package main
 
-import "github.com/daveshanley/vacuum/plugin"
+import "github.com/buraksekili/vacuum/plugin"
 
 // Boot is called by the Manager when the module is located.
 // all custom functions should be registered here.

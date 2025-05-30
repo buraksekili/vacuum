@@ -4,11 +4,11 @@
 package owasp
 
 import (
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    "gopkg.in/yaml.v3"
-    "slices"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	"gopkg.in/yaml.v3"
+	"slices"
 )
 
 type IntegerLimit struct{}

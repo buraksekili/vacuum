@@ -1,15 +1,15 @@
 package owasp
 
 import (
-    "fmt"
-    "slices"
+	"fmt"
+	"slices"
 
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    drV3 "github.com/pb33f/doctor/model/high/v3"
-    v3 "github.com/pb33f/libopenapi/datamodel/low/v3"
-    "github.com/pb33f/libopenapi/utils"
-    "gopkg.in/yaml.v3"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	drV3 "github.com/pb33f/doctor/model/high/v3"
+	v3 "github.com/pb33f/libopenapi/datamodel/low/v3"
+	"github.com/pb33f/libopenapi/utils"
+	"gopkg.in/yaml.v3"
 )
 
 type CheckSecurity struct {

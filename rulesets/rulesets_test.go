@@ -3,7 +3,7 @@ package rulesets
 import (
 	"bytes"
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/stretchr/testify/assert"
 	"log/slog"
 	"net/http"

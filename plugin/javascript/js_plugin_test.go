@@ -5,8 +5,8 @@ package javascript
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/functions/core"
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/functions/core"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/pterm/pterm"
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v3"

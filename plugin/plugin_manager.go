@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"gopkg.in/yaml.v3"
 )
 

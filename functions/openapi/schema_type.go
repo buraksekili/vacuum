@@ -4,8 +4,8 @@ package openapi
 
 import (
 	"fmt"
-	"github.com/daveshanley/vacuum/model"
-	vacuumUtils "github.com/daveshanley/vacuum/utils"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
 	"github.com/dop251/goja"
 	"github.com/pb33f/doctor/model/high/v3"
 	"gopkg.in/yaml.v3"

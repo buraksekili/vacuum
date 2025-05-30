@@ -4,19 +4,19 @@
 package openapi
 
 import (
-    "fmt"
-    "github.com/daveshanley/vacuum/model"
-    vacuumUtils "github.com/daveshanley/vacuum/utils"
-    "github.com/pb33f/doctor/model/high/v3"
-    "github.com/pb33f/libopenapi-validator/schema_validation"
-    v3Base "github.com/pb33f/libopenapi/datamodel/high/base"
-    "github.com/pb33f/libopenapi/datamodel/low"
-    "github.com/pb33f/libopenapi/orderedmap"
-    "github.com/pb33f/libopenapi/utils"
-    "github.com/sourcegraph/conc"
-    "gopkg.in/yaml.v3"
-    "strings"
-    "sync"
+	"fmt"
+	"github.com/buraksekili/vacuum/model"
+	vacuumUtils "github.com/buraksekili/vacuum/utils"
+	"github.com/pb33f/doctor/model/high/v3"
+	"github.com/pb33f/libopenapi-validator/schema_validation"
+	v3Base "github.com/pb33f/libopenapi/datamodel/high/base"
+	"github.com/pb33f/libopenapi/datamodel/low"
+	"github.com/pb33f/libopenapi/orderedmap"
+	"github.com/pb33f/libopenapi/utils"
+	"github.com/sourcegraph/conc"
+	"gopkg.in/yaml.v3"
+	"strings"
+	"sync"
 )
 
 // ExamplesSchema will check anything that has an example, has a schema and it's valid.

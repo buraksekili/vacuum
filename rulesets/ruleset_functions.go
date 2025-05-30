@@ -6,8 +6,8 @@ package rulesets
 import (
 	"regexp"
 
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/parser"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/parser"
 )
 
 // GetContactPropertiesRule will return a rule configured to look at contact properties of a spec.

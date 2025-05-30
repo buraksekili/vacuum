@@ -1,6 +1,6 @@
 package core
 
-import "github.com/daveshanley/vacuum/model"
+import "github.com/buraksekili/vacuum/model"
 
 func buildCoreTestRule(given, severity, function, field string, functionOptions map[string]string) model.Rule {
 	return model.Rule{

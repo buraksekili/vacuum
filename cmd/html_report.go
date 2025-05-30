@@ -5,12 +5,12 @@ package cmd
 
 import (
 	"errors"
-	html_report "github.com/daveshanley/vacuum/html-report"
-	"github.com/daveshanley/vacuum/model"
-	"github.com/daveshanley/vacuum/model/reports"
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/statistics"
-	vacuum_report "github.com/daveshanley/vacuum/vacuum-report"
+	html_report "github.com/buraksekili/vacuum/html-report"
+	"github.com/buraksekili/vacuum/model"
+	"github.com/buraksekili/vacuum/model/reports"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/statistics"
+	vacuum_report "github.com/buraksekili/vacuum/vacuum-report"
 	"github.com/pb33f/libopenapi/datamodel"
 	"github.com/pb33f/libopenapi/index"
 	"github.com/pterm/pterm"

@@ -4,7 +4,7 @@
 package cui
 
 import (
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	"github.com/gizak/termui/v3/widgets"
 )
 

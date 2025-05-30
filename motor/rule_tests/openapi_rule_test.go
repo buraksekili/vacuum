@@ -1,8 +1,8 @@
 package rule_tests
 
 import (
-	"github.com/daveshanley/vacuum/motor"
-	"github.com/daveshanley/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/motor"
+	"github.com/buraksekili/vacuum/rulesets"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

@@ -5,9 +5,9 @@
 package cmd
 
 import (
-	languageserver "github.com/daveshanley/vacuum/language-server"
-	"github.com/daveshanley/vacuum/rulesets"
-	"github.com/daveshanley/vacuum/utils"
+	languageserver "github.com/buraksekili/vacuum/language-server"
+	"github.com/buraksekili/vacuum/rulesets"
+	"github.com/buraksekili/vacuum/utils"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 	"io"

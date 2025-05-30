@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/daveshanley/vacuum/model"
+	"github.com/buraksekili/vacuum/model"
 	yaml "gopkg.in/yaml.v3"
 )
 
