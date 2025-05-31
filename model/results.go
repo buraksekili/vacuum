@@ -1,13 +1,14 @@
 package model
 
 import (
-	"github.com/buraksekili/vacuum/model/reports"
-	"github.com/pb33f/libopenapi/datamodel"
 	"math"
 	"regexp"
 	"sort"
 	"strings"
 	"sync"
+
+	"github.com/buraksekili/vacuum/model/reports"
+	"github.com/pb33f/libopenapi/datamodel"
 )
 
 // RuleResultsForCategory boils down result statistics for a linting category
@@ -56,9 +57,10 @@ func NewRuleResultSet(results []RuleFunctionResult) *RuleResultSet {
 		Results:     pointerResults,
 		categoryMap: make(map[*RuleCategory][]*RuleFunctionResult),
 	}
-	rrs.GetErrorCount()
-	rrs.GetInfoCount()
-	rrs.GetWarnCount()
+
+	rrs.ErrorCount = rrs.GetErrorCount()
+	rrs.InfoCount = rrs.GetInfoCount()
+	rrs.WarnCount = rrs.GetWarnCount()
 	return rrs
 }
 
