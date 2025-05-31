@@ -116,7 +116,7 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 	var ruleResults []model.RuleFunctionResult
 	var ruleWaitGroup sync.WaitGroup
 
-	passedRules := make(map[string]*model.Rule, len(execution.RuleSet.Rules))
+	passedRules := make(map[string]*model.Rule)
 	if execution.RuleSet != nil && execution.RuleSet.Rules != nil {
 		ruleWaitGroup.Add(len(execution.RuleSet.Rules))
 		for i := range execution.RuleSet.Rules {
