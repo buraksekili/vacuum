@@ -111,7 +111,7 @@ type Rule struct {
 	Then               interface{}    `json:"then,omitempty" yaml:"then,omitempty"`
 	PrecompiledPattern *regexp.Regexp `json:"-" yaml:"-"` // regex is slow.
 	RuleCategory       *RuleCategory  `json:"category,omitempty" yaml:"category,omitempty"`
-	Name               string         `json:"-" yaml:"-"`
+	Name               string         `json:"name,omitempty" yaml:"name,omitempty"`
 	HowToFix           string         `json:"howToFix,omitempty" yaml:"howToFix,omitempty"`
 	RequireField       *bool          `json:"requireField,omitempty" yaml:"requireField,omitempty"` // Whether the field in 'given' must exist
 }

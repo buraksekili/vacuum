@@ -124,6 +124,12 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 		}
 	}
 
+	for name, rule := range execution.RuleSet.Rules {
+		if rule.Name == "" {
+			rule.Name = name
+		}
+	}
+
 	var specResolved *yaml.Node
 	var specUnresolved *yaml.Node
 
