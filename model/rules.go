@@ -20,6 +20,7 @@ const (
 	SeverityWarn         = "warn"
 	SeverityInfo         = "info"
 	SeverityHint         = "hint"
+	SeverityNone         = "none"
 	CategoryExamples     = "examples"
 	CategoryOperations   = "operations"
 	CategoryInfo         = "information"
