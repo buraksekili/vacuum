@@ -124,9 +124,11 @@ func ApplyRulesToRuleSet(execution *RuleSetExecution) *RuleSetExecutionResult {
 		}
 	}
 
-	for name, rule := range execution.RuleSet.Rules {
-		if rule.Name == "" {
-			rule.Name = name
+	if execution.RuleSet != nil {
+		for name, rule := range execution.RuleSet.Rules {
+			if rule.Name == "" {
+				rule.Name = name
+			}
 		}
 	}
 
